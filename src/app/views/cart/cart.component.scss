@@ -1,0 +1,17 @@
+p.empty-message {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 23px;
+  line-height: normal;
+}
+
+.clear-button {
+  width: 118px;
+  height: 40px;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 6px;
+  margin: 2rem;
+}

@@ -1,0 +1,5 @@
+<div class="pokemon-list-title">Pokemons list ({{pokemons.length}}):</div>
+<mat-list role="list" class="pokemon-list__container">
+    <app-pokemon-card *ngFor="let pokemon of pokemons" [poke]='pokemon' [buttonClass]="!pokemon.inCart?'add':''"
+        (buttonClicked)='onPokemonAdded(pokemon)'></app-pokemon-card>
+</mat-list>

@@ -1,0 +1,7 @@
+<div class='pokemon-item'>
+    <button type="button" *ngIf='buttonClass' (click)='onPrimaryButtonClick()' [ngClass]='buttonClass'></button>
+    <div class='info-section'>
+        <img [src]="poke.pic" *ngIf='poke.pic'>
+        {{poke.name | titlecase}}
+    </div>
+</div>

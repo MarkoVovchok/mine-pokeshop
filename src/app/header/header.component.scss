@@ -1,0 +1,18 @@
+.header {
+  &__container {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    color: white;
+    cursor: pointer;
+    &:hover {
+      color: pink;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
