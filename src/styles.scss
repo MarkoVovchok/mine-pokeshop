@@ -27,11 +27,41 @@ body {
   &-container {
     display: flex;
     flex-direction: column;
-
-    align-items: center;
+    max-height: 426px;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   &-title {
     font-size: x-large;
     margin: 2rem;
+  }
+}
+
+.cart-dialog-container .mat-dialog-container {
+  background: white;
+  color: #6a6a6a;
+  border-radius: 15px;
+}
+
+@media (min-width: 768px) {
+  .pokemon-list {
+    &-container {
+      flex-wrap: wrap;
+      display: flex;
+      flex-direction: row;
+      max-height: 735px;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      margin: auto;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .pokemon-list {
+    &-container {
+      max-height: none;
+      overflow: hidden;
+    }
   }
 }

@@ -3,9 +3,10 @@
         <ng-container *ngIf="cart.length !== 0 else empty">
             <div class="pokemon-list-title">Added to cart ({{cart.length}}):</div>
             <div class='pokemon-list-container'>
-                <app-pokemon-card *ngFor="let pokemon of cart" [poke]='pokemon' buttonClass="remove"></app-pokemon-card>
+                <app-pokemon-card *ngFor="let pokemon of cart" [poke]='pokemon' buttonClass="remove"
+                    (buttonClicked)='removeFromCart(pokemon)' [animateFadeout]='!pokemon.inCart'></app-pokemon-card>
             </div>
-            <button type="button" class='clear-button' (click)="clearCart()">Clear</button>
+            <button type="button" class='btn clear-button' (click)="openDialog()">Clear</button>
         </ng-container>
     </ng-container>
 
@@ -13,4 +14,12 @@
 
 <ng-template #empty>
     <p class="empty-message">Cart is empty. Go catch some Pokemon!</p>
+</ng-template>
+
+<ng-template #clearDialog>
+    <h2 mat-dialog-title align='center'>Are you sure you want to clear the cart?</h2>
+    <mat-dialog-actions align="center">
+        <button class='btn cancel' mat-dialog-close>No</button>
+        <button class='btn confirm' [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+    </mat-dialog-actions>
 </ng-template>

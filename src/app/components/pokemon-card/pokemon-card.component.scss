@@ -23,8 +23,10 @@
     border: none;
     position: absolute;
     cursor: pointer;
-
-    &.add {
+    display: flex;
+    justify-content: center;
+    &.add,
+    &.remove {
       border-radius: 50%;
       width: 25px;
       height: 25px;
@@ -32,12 +34,19 @@
       top: 4px;
       right: 4px;
       &::after {
-        content: "+";
-        display: flex;
+        display: block;
         color: white;
-        align-items: center;
         font-size: 20px;
-        justify-content: center;
+      }
+    }
+    &.add {
+      &:after {
+        content: "+";
+      }
+    }
+    &.remove {
+      &:after {
+        content: "-";
       }
     }
   }
@@ -51,4 +60,31 @@
     width: 70px;
     height: 70px;
   }
+}
+
+@media (min-width: 768px) {
+  .pokemon-item {
+    width: 230px;
+  }
+}
+
+@media (min-width: 992px) {
+  .pokemon-item {
+    width: 250px;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeout {
+  animation-name: fadeOut;
+  animation-duration: 500ms;
 }

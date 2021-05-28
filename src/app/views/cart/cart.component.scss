@@ -5,13 +5,22 @@ p.empty-message {
   line-height: normal;
 }
 
-.clear-button {
+.btn {
   width: 118px;
   height: 40px;
-  background-color: var(--accent-color);
   color: white;
   font-size: 20px;
   border: none;
   border-radius: 6px;
-  margin: 2rem;
+  margin: 4px;
+  &.clear-button {
+    background-color: var(--accent-color);
+    margin: 2rem;
+  }
+  &.confirm {
+    background-color: var(--accent-color);
+  }
+  &.cancel {
+    background-color: red;
+  }
 }

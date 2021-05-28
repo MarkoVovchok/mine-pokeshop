@@ -3,14 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 import { LoggerService } from './logger.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private isLoggedIn = new BehaviorSubject<boolean>(false);
   public isLoggedIn$ = this.isLoggedIn.asObservable();
 
-  constructor(private logger: LoggerService) { }
+  constructor(private logger: LoggerService) {}
 
   public init() {
     this.logger.debug('init AuthService');

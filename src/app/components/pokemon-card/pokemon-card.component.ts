@@ -8,6 +8,7 @@ import { Pokemon } from 'src/app/pokemon-types';
 })
 export class PokemonCardComponent implements OnInit {
   @Input() poke: Pokemon;
+  @Input() animateFadeout: boolean = false;
   @Input() buttonClass = '';
   @Output() buttonClicked: EventEmitter<void> = new EventEmitter<void>();
   constructor() {}

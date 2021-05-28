@@ -3,7 +3,7 @@ import { LoggerService } from './logger.service';
 import { ApiClientService } from './api-client.service';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { Pokemon } from './pokemon-types';
-import { concatMap, map, mergeMap, take, tap } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -40,5 +40,16 @@ export class PokemonService {
           this.pokemonsSub.unsubscribe();
         }
       });
+  }
+
+  updatePokemonArrayAfterLoad(loadedCart: Pokemon[]) {
+    let pokemonArray = this.pokemonList.value;
+    for (let pokemon of loadedCart) {
+      let index = pokemonArray.findIndex((item) => item.name === pokemon.name);
+      if (index !== -1) {
+        pokemonArray[index] = pokemon;
+      }
+    }
+    this.pokemonList.next(pokemonArray);
   }
 }
