@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { CartComponent } from './views/cart/cart.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatListModule,
     MatDialogModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

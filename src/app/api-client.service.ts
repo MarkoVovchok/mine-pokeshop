@@ -3,7 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { LoggerService } from './logger.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Pokemon, PokemonsResponse } from './pokemon-types';
+import {
+  Pokemon,
+  PokemonsResponse,
+  SinglePokemonResponse,
+} from './pokemon-types';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +28,19 @@ export class ApiClientService {
       .pipe(map((res) => res.results));
   }
 
+  /**
+   * Gets specific pokemon picture URL by getting all the info and parsing the result to only return the url we need;
+   *
+   * @param {string} url
+   * @return {*}  {Observable<string>}
+   * @memberof ApiClientService
+   */
   getPokemonPicture(url: string): Observable<string> {
-    return this.httpClient
-      .get(url)
-      .pipe(map((res) => res['sprites']['front_default']));
+    return this.httpClient.get<SinglePokemonResponse>(url).pipe(
+      map((res) => {
+        this.logger.info(`fetched picture URL for ${res.name}`);
+        return res.sprites.front_default;
+      })
+    );
   }
 }

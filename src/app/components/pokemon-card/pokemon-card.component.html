@@ -1,5 +1,5 @@
 <div class='pokemon-item' [class.fadeout]='animateFadeout'>
-    <button type="button" *ngIf='buttonClass' (click)='onPrimaryButtonClick()' [ngClass]='buttonClass'></button>
+    <button type="button" (click)='onPrimaryButtonClick()' [ngClass]='buttonClass'></button>
     <div class='info-section'>
         <img [src]="poke.pic" *ngIf='poke.pic'>
         {{poke.name | titlecase}}

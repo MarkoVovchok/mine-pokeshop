@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Pokemon } from 'src/app/pokemon-types';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { MatDialog } from '@angular/material/dialog';

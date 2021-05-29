@@ -1,5 +1,5 @@
-<div class="pokemon-list-title">Pokemons list ({{pokemons.length}}):</div>
-<div class="pokemon-list-container">
-    <app-pokemon-card *ngFor="let pokemon of pokemons" [poke]='pokemon' [buttonClass]="!pokemon.inCart?'add':''"
-        (buttonClicked)='onPokemonAdded(pokemon)'></app-pokemon-card>
-</div>
+<div class="pokemon-list__title">Pokemons list ({{pokemons.length}}):</div>
+<cdk-virtual-scroll-viewport itemSize="122" minBufferPx="480" maxBufferPx="880" class="pokemon-list__scroller">
+    <app-pokemon-card *cdkVirtualFor="let pokemon of pokemons;TemplateCacheSize:0" [poke]='pokemon'
+        [buttonClass]="!pokemon.inCart?'add':''" (buttonClicked)='onPokemonAdded(pokemon)'></app-pokemon-card>
+</cdk-virtual-scroll-viewport>

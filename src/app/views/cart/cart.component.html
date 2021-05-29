@@ -1,16 +1,14 @@
-<div class="cart-wrapper">
-    <ng-container *ngIf="$cart|async as cart">
-        <ng-container *ngIf="cart.length !== 0 else empty">
-            <div class="pokemon-list-title">Added to cart ({{cart.length}}):</div>
-            <div class='pokemon-list-container'>
-                <app-pokemon-card *ngFor="let pokemon of cart" [poke]='pokemon' buttonClass="remove"
-                    (buttonClicked)='removeFromCart(pokemon)' [animateFadeout]='!pokemon.inCart'></app-pokemon-card>
-            </div>
-            <button type="button" class='btn clear-button' (click)="openDialog()">Clear</button>
-        </ng-container>
+<ng-container *ngIf="$cart|async as cart">
+    <ng-container *ngIf="cart.length !== 0 else empty">
+        <div class="pokemon-list__title">Added to cart ({{cart.length}}):</div>
+        <div class='pokemon-list__container'>
+            <app-pokemon-card *ngFor="let pokemon of cart" [poke]='pokemon' buttonClass="remove"
+                (buttonClicked)='removeFromCart(pokemon)' [animateFadeout]='!pokemon.inCart'></app-pokemon-card>
+        </div>
+        <button type="button" class='btn clear__button' (click)="openDialog()">Clear</button>
     </ng-container>
+</ng-container>
 
-</div>
 
 <ng-template #empty>
     <p class="empty-message">Cart is empty. Go catch some Pokemon!</p>

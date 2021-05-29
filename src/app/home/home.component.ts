@@ -51,4 +51,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       pokemon.inCart = true;
     }
   }
+
+  trackByFunc(index, item: Pokemon) {
+    return item.name;
+  }
 }

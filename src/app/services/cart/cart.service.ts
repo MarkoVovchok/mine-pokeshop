@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth.service';
 import { LocalStorageKeys } from 'src/app/enums';
+import { LoggerService } from 'src/app/logger.service';
 import { Pokemon } from 'src/app/pokemon-types';
 import { PokemonService } from 'src/app/pokemon.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
@@ -17,7 +18,8 @@ export class CartService {
   constructor(
     private localStorage: LocalStorageService,
     private auth: AuthService,
-    private pokemon: PokemonService
+    private pokemon: PokemonService,
+    private logger: LoggerService
   ) {}
 
   get pokemonCart() {
@@ -28,6 +30,7 @@ export class CartService {
     this._pokemonCart.value.forEach((pokemon) => (pokemon.inCart = false));
     this._pokemonCart.next([]);
     this.saveUsersCartToLocal();
+    this.logger.info('Cart cleared');
   }
 
   addToCart(poke: Pokemon) {
@@ -56,6 +59,7 @@ export class CartService {
       this.clearCart();
       this.pokemon.updatePokemonArrayAfterLoad(previousCart);
       this._pokemonCart.next(previousCart);
+      this.logger.info(`Loaded authorized user's cart`);
     }
   }
 

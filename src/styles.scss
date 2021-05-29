@@ -24,16 +24,20 @@ body {
   }
 }
 .pokemon-list {
-  &-container {
-    display: flex;
+  &__container {
+    display: block;
     flex-direction: column;
     max-height: 426px;
     overflow-x: hidden;
     overflow-y: scroll;
   }
-  &-title {
+  &__title {
     font-size: x-large;
     margin: 2rem;
+  }
+  &__scroller {
+    height: 450px;
+    width: 100%;
   }
 }
 
@@ -45,7 +49,7 @@ body {
 
 @media (min-width: 768px) {
   .pokemon-list {
-    &-container {
+    &__container {
       flex-wrap: wrap;
       display: flex;
       flex-direction: row;
@@ -59,7 +63,7 @@ body {
 }
 @media (min-width: 992px) {
   .pokemon-list {
-    &-container {
+    &__container {
       max-height: none;
       overflow: hidden;
     }
